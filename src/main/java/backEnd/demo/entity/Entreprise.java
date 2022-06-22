@@ -14,7 +14,7 @@ import javax.persistence.*;
 
 @Data
 @Builder
-public class EntrepriseApp {
+public class Entreprise {
 
     @Id
     @SequenceGenerator(

@@ -22,11 +22,11 @@ public class Invitation {
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "employe_id",nullable = true, foreignKey = @ForeignKey(name="FK_EMPLOYE"))
 	
-	private EmployeesApp employe;
+	private Employees employe;
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "entreprise_id",nullable = true, foreignKey = @ForeignKey(name="FK_ENTREPRISE"))
 	
-	private EntrepriseApp entreprise;
+	private Entreprise entreprise;
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "contrat_id",nullable = false, foreignKey = @ForeignKey(name="FK_CONTRAT"))
 	

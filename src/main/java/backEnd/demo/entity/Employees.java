@@ -13,7 +13,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class EmployeesApp {
+public class Employees {
      @Id
      @SequenceGenerator(
              name="user_sequence",

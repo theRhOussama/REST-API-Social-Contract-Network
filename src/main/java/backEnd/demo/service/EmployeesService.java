@@ -1,13 +1,13 @@
 package backEnd.demo.service;
 
-import backEnd.demo.entity.EmployeesApp;
+import backEnd.demo.entity.Employees;
 
 public interface EmployeesService {
 
 
-    public EmployeesApp saveEmployee(EmployeesApp employees);
-    public EmployeesApp showEmployeeByCin(String cin);
-    public EmployeesApp findEmpByUsernaem(String username);
+    public Employees saveEmployee(Employees employees);
+    public Employees showEmployeeByCin(String cin);
+    public Employees findEmpByUsernaem(String username);
 
 
 }

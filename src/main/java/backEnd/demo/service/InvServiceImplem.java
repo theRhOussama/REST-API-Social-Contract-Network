@@ -12,8 +12,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
-import backEnd.demo.entity.EmployeesApp;
-import backEnd.demo.entity.EntrepriseApp;
+import backEnd.demo.entity.Employees;
+import backEnd.demo.entity.Entreprise;
 import backEnd.demo.entity.Invitation;
 import backEnd.demo.entity.contrat;
 
@@ -32,7 +32,7 @@ public class InvServiceImplem implements InvService{
 	@Override
 	public List<Invitation> ListerInvitationent(long iden) {
 		List<Invitation> invitations;
-		EntrepriseApp entreprise =entrepriseRepository.findById(iden).get();
+		Entreprise entreprise =entrepriseRepository.findById(iden).get();
 		invitations=invRepository.findByEntreprise(entreprise);
 		
 		return invitations;
@@ -42,7 +42,7 @@ public class InvServiceImplem implements InvService{
 	public List<Invitation> ListerInvitationem(long idem) {
 		// TODO Auto-generated method stub
 		List<Invitation> invitations;
-		EmployeesApp employe =employeRepository.findById(idem).get();
+		Employees employe =employeRepository.findById(idem).get();
 		invitations=invRepository.findByEmploye(employe);
 		
 		return invitations;
@@ -56,8 +56,8 @@ public class InvServiceImplem implements InvService{
 		String fileName = StringUtils.cleanPath(file.getOriginalFilename());
 		contrat c=contratService.saveContrat(file, type, date_debut, date_fin);
 		Invitation invitation= new Invitation();
-		EmployeesApp employe= employeRepository.findById(idem).get();
-		EntrepriseApp entreprise=entrepriseRepository.findById(idem).get();
+		Employees employe= employeRepository.findById(idem).get();
+		Entreprise entreprise=entrepriseRepository.findById(idem).get();
 		invitation.setEntreprise(entreprise);
 		invitation.setEmploye(employe);
 		invitation.setContrat(c);

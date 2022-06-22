@@ -2,7 +2,7 @@ package backEnd.demo.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import backEnd.demo.entity.EmployeesApp;
+import backEnd.demo.entity.Employees;
 import backEnd.demo.entity.UserApp;
 import backEnd.demo.service.AccountService;
 import backEnd.demo.service.EmailSenderService;
@@ -44,14 +44,14 @@ public class EmployeesController {
 
     @PostMapping("/register/registerEmployee")
 
-    public EmployeesApp  registerEmployee(@RequestBody EmployeesApp employeesApp)
+    public Employees registerEmployee(@RequestBody Employees employees)
     {
 
 
-        UserApp user = employeesApp.getUser();
-        String username=  user.getUsername().toString();
+        UserApp user = employees.getUser();
+        String username=  user.getUsername();
 
-        employeesService.saveEmployee(employeesApp);
+        employeesService.saveEmployee(employees);
         accountService.addRoleToUser(username,"EMPLOYEE");
         accountService.addRoleToUser(username,"USER");
 
@@ -62,7 +62,7 @@ public class EmployeesController {
 
 
 
-        return employeesApp;
+        return employees;
     }
 
 

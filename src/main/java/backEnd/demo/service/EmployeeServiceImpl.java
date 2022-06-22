@@ -3,7 +3,7 @@ package backEnd.demo.service;
 import backEnd.demo.repository.EmployeesRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import backEnd.demo.entity.EmployeesApp;
+import backEnd.demo.entity.Employees;
 import backEnd.demo.entity.UserApp;
 
 import javax.transaction.Transactional;
@@ -25,7 +25,7 @@ public class EmployeeServiceImpl implements EmployeesService {
 
 
     @Override
-    public EmployeesApp saveEmployee(EmployeesApp employees) {
+    public Employees saveEmployee(Employees employees) {
         UserApp userApp = employees.getUser();
               String pw = userApp.getPassword();
                  userApp.setPassword(passwordEncoder.encode(pw));
@@ -34,12 +34,12 @@ public class EmployeeServiceImpl implements EmployeesService {
     }
 
     @Override
-    public EmployeesApp showEmployeeByCin(String cin) {
+    public Employees showEmployeeByCin(String cin) {
         return employeesRepository.findByCin(cin);
     }
 
 
-    public EmployeesApp findEmpByUsernaem(String username) {
+    public Employees findEmpByUsernaem(String username) {
         return employeesRepository.findByUserUsername(username);
     }
 
