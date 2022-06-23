@@ -1,5 +1,6 @@
 package backEnd.demo.service;
 
+import backEnd.demo.entity.Entreprise;
 import backEnd.demo.repository.EmployeesRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -7,6 +8,7 @@ import backEnd.demo.entity.Employees;
 import backEnd.demo.entity.UserApp;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Transactional
 
@@ -41,6 +43,11 @@ public class EmployeeServiceImpl implements EmployeesService {
 
     public Employees findEmpByUsernaem(String username) {
         return employeesRepository.findByUserUsername(username);
+    }
+
+    @Override
+    public List<Entreprise> findCompanies() {
+        return employeesRepository.findAllCompanies();
     }
 
 

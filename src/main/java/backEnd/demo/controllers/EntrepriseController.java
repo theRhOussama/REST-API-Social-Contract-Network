@@ -29,7 +29,8 @@ public class EntrepriseController {
     @GetMapping("/entreprise/showEmployees")
      public List<Employees> showEmployees(){
 
-        List<Employees> employees = entrepriseService.findEmployees();
+        List<Employees> employees = (List<Employees>) entrepriseService.findEmployees();
+        System.out.println(employees);
         return employees;
     }
 

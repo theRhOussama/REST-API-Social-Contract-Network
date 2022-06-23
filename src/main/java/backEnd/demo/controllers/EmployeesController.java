@@ -1,5 +1,6 @@
 package backEnd.demo.controllers;
 
+import backEnd.demo.entity.Entreprise;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import backEnd.demo.entity.Employees;
@@ -7,6 +8,8 @@ import backEnd.demo.entity.UserApp;
 import backEnd.demo.service.AccountService;
 import backEnd.demo.service.EmailSenderService;
 import backEnd.demo.service.EmployeesService;
+
+import java.util.List;
 
 @RestController
 
@@ -41,6 +44,14 @@ public class EmployeesController {
   return myemp;
      }
 
+     @CrossOrigin(origins  ="*")
+    @GetMapping("/employee/showCompanies")
+    public List<Entreprise> showEntreprise()
+     {
+         List<Entreprise> entreprises =(List<Entreprise>) employeesService.findCompanies();
+
+         return  entreprises;
+     }
 
     @PostMapping("/register/registerEmployee")
 
